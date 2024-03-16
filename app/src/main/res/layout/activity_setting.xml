@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/basicsqure"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_button"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="30dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:layout_below="@id/back_button"
+        android:orientation="vertical"
+        android:padding="10dp">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Setting"
+        android:textColor="@color/primary_color"
+        android:textSize="28dp"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/abus"
+        android:layout_width="wrap_content"
+        android:layout_height="420dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="297dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/input_background"
+        android:elevation="5dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="About Us:"
+            android:textColor="@color/primary_color"
+            android:layout_gravity="start"
+            android:textSize="26dp"
+            android:fontFamily="@font/ubuntu_medium"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:paddingTop="15dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:fontFamily="@font/ubuntu"
+            android:lineBreakStyle="strict"
+            android:lineSpacingExtra="2dp"
+            android:text="Billify: Your pocket-sized billing solution. Shopkeepers scan barcodes, store bills digitally, and manage customers. Customers view past purchases and access receipts easily. Built by a dedicated 4-person team."
+            android:textColor="@color/primary_color"
+            android:alpha="0.6"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView3"
+            android:text="Links:"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/primary_color"
+            android:textSize="26dp"
+            android:layout_gravity="start"
+            android:fontFamily="@font/ubuntu_medium" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@id/textView4"
+    android:gravity="center"
+    android:padding="20dp"
+
+    >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/email"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/instagram"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/twitter"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/facebook"
+            android:layout_weight="1"/>
+</LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/login_btn"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:elevation="5dp">
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@drawable/logout"
+            android:paddingTop="3dp"
+            android:paddingRight="3dp"
+            android:paddingLeft="3dp"
+            android:layout_marginRight="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="Log out"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+</RelativeLayout>

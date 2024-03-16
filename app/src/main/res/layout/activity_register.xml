@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/secondary_color">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu"
+        android:text="Hello,"
+        android:textColor="@color/primary_color"
+        android:textSize="48sp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="80dp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_gravity="left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Register "
+            android:textColor="@color/third_color"
+            android:textSize="48sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+            android:text="Now !"
+            android:textColor="@color/primary_color"
+            android:textSize="48sp" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/ubuntu_light"
+        android:hint="Username"
+        android:padding="17dp"
+        android:textColor="@color/primary_color"
+        android:textSize="18dp"
+        android:inputType="text"
+        android:background="@drawable/input_background"
+        android:textColorHint="@color/third_color"
+        android:elevation="5dp"
+        />
+
+    <EditText
+        android:id="@+id/phonenumber"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ubuntu_light"
+        android:hint="Phone number"
+        android:padding="17dp"
+        android:textColor="@color/primary_color"
+        android:textSize="18dp"
+        android:inputType="text"
+        android:background="@drawable/input_background"
+        android:textColorHint="@color/third_color"
+        android:elevation="5dp"
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ubuntu_light"
+        android:hint="Password"
+        android:background="@drawable/input_background"
+        android:padding="17dp"
+        android:inputType="textPassword"
+        android:textColorHint="@color/third_color"
+        android:textColor="@color/primary_color"
+        android:textSize="18dp"
+        android:elevation="5dp"/>
+
+    <RadioGroup
+        android:id="@+id/group"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="30dp"
+        android:layout_marginBottom="100dp"
+        >
+        <RadioButton
+            android:id="@+id/customerrb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer"
+            android:textSize="19dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:checked="true"
+            />
+        <RadioButton
+            android:id="@+id/shopkeeperrb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shopkeeper"
+            android:textSize="19dp"
+            android:fontFamily="@font/ubuntu_medium"
+            />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="73dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/ubuntu"
+                android:text="Already have an account ?"
+                android:textColor="@color/primary_color"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/login_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Sign in >"
+                android:textColor="@color/primary_color"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/register_btn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/btn"
+            android:padding="25dp"
+            android:src="@drawable/baseline_arrow_forward_ios_24"/>
+    </LinearLayout>
+
+</LinearLayout>

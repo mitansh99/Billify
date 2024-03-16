@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GeneratedBill"
+    android:background="@drawable/basicsqure"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_button"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="30dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/bill_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bill From:"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp"/>
+            <TextView
+                android:id="@+id/shopkeeper_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Shopkeeper Name]"
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/bill_from"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                />
+            <TextView
+                android:id="@+id/shopkeeper_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Shopkeeper Number]"
+                android:textSize="18sp"
+                android:layout_below="@id/shopkeeper_name"
+                android:layout_marginTop="8dp"
+                android:layout_alignParentStart="true"/>
+
+
+            <!-- Bill To -->
+            <TextView
+                android:id="@+id/bill_to_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bill To:"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_below="@id/shopkeeper_number"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Customer Details -->
+            <TextView
+                android:id="@+id/customer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Customer Name]"
+                android:textSize="16sp"
+                android:layout_below="@id/bill_to_title"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/customer_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Phone Number]"
+                android:textSize="16sp"
+
+                android:layout_below="@id/customer_name"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="8dp"/>
+
+
+
+
+            <!-- Invoice Details -->
+
+
+            <TextView
+                android:id="@+id/invoice_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date: [Date]"
+                android:textSize="16sp"
+                android:layout_below="@id/customer_name"
+                android:layout_toRightOf="@id/customer_phone"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/invoice_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Unique Identifier]"
+                android:textSize="15sp"
+                android:layout_below="@id/customer_phone"
+                android:layout_marginTop="16dp"/>
+            <!-- Bill Items -->
+            <ScrollView
+                android:id="@+id/scroll"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/invoice_number"
+                android:layout_marginTop="16dp">
+
+                <TableLayout
+                    android:id="@+id/table_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bill_lines">
+
+                    <!-- Table Header -->
+                    <TableRow
+                        android:background="@drawable/bill_lines">
+                        <TextView
+
+                            android:textAlignment="center"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Items"
+                            android:textStyle="bold"
+                            android:padding="8dp"/>
+
+                        <TextView
+                            android:textAlignment="center"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Quantity"
+                            android:textStyle="bold"
+                            android:padding="8dp"/>
+
+                        <TextView
+                            android:textAlignment="center"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Unit Price"
+                            android:textStyle="bold"
+                            android:padding="8dp"/>
+
+                        <TextView
+                            android:textAlignment="center"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Total"
+                            android:textStyle="bold"
+                            android:padding="8dp"/>
+
+                    </TableRow>
+
+                    <!-- Add dynamic rows for bill items -->
+
+
+                </TableLayout>
+            </ScrollView>
+
+            <!-- Subtotal, Tax, Total -->
+            <TextView
+                android:id="@+id/subtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subtotal"
+                android:textSize="16sp"
+                android:layout_below="@id/scroll"
+                android:layout_marginTop="16dp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/tax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tax (XX%)"
+                android:textSize="16sp"
+                android:layout_below="@id/subtotal"
+                android:layout_marginTop="8dp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/grand_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textSize="18sp"
+                android:layout_below="@id/tax"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/ubuntu_bold"
+                android:layout_alignParentEnd="true"/>
+
+            <!-- Payment Instructions and Additional Notes -->
+
+            <TextView
+                android:id="@+id/thank_you_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thank you for your business!"
+                android:textSize="16sp"
+                android:layout_below="@id/grand_total"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+            <Button
+                android:id="@+id/send_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondary_color"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="Send"
+                android:visibility="gone"
+                android:elevation="5dp"
+                />
+
+            <!-- Thank You Message -->
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
