@@ -98,12 +98,13 @@ public class ScanBarcode extends AppCompatActivity {
         manualEntryBtn = findViewById(R.id.manual_entry_btn);
         cancelItemBtn = findViewById(R.id.cancel_item);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line);
+        adapter = new ArrayAdapter<>(this, R.layout.dropdown_item);
         manualItemId.setAdapter(adapter);
 
         manualItemId.setOnItemClickListener((parent, view, position, id) -> {
             String selection = (String) parent.getItemAtPosition(position);
-            manualItemId.setText(selection);
+            manualItemId.setText(selection, false); // false prevents filtering/re-showing dropdown
+            manualItemId.dismissDropDown();
             searchManualBtn.performClick();
         });
 
@@ -168,6 +169,7 @@ public class ScanBarcode extends AppCompatActivity {
                 if (manualId.isEmpty()) {
                     manualItemId.setError("Enter Item ID");
                 } else {
+                    manualItemId.dismissDropDown();
                     hideKeyboard();
                     itemID = manualId;
                     checkItem();
@@ -226,8 +228,48 @@ public class ScanBarcode extends AppCompatActivity {
                 addItems();
             }
         });
+        // Move saveUsername listener out of runCodeScanner for better optimization
+        saveUsername.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = customerUsername.getText().toString().trim();
+                if (username.isEmpty()) {
+                    customerUsername.setError("Enter Customer Username");
+                } else {
+                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users");
+                    userRef.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                String userType = snapshot.child("usertype").getValue(String.class);
+                                if ("Customer".equals(userType)) {
+                                    saveBillData();
+                                    startScanning();
+                                    userPop.setVisibility(View.GONE);
+                                } else {
+                                    customerUsername.setError("User is not a Customer");
+                                }
+                            } else {
+                                customerUsername.setError("Username does not exist");
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {}
+                    });
+                }
+            }
+        });
+
         runCodeScanner();
         checkCameraPermission();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (debounceHandler != null && debounceRunnable != null) {
+            debounceHandler.removeCallbacks(debounceRunnable);
+        }
     }
 
     private void checkCameraPermission() {
@@ -256,58 +298,18 @@ public class ScanBarcode extends AppCompatActivity {
     //All methods created for pertticuler work
     private void runCodeScanner() {
         codeScanner = new CodeScanner(this, scannerView);
-        saveUsername.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (customerUsername.getText().toString().isEmpty()) {
-                    Toast.makeText(ScanBarcode.this, "Enter Customer Username", Toast.LENGTH_SHORT).show();
-                } else {
-                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-                    Query checkUserDatabase = reference.orderByChild("username").equalTo(customerUsername.getText().toString());
-                    checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists()) {
-                                customerUsername.setError(null);
-                                String userTypeFromDB = snapshot.child(customerUsername.getText().toString()).child("usertype").getValue(String.class);
-                                if (userTypeFromDB.equals("Customer")) {
-                                    saveBillData();
-                                    startScanning();
-                                    userPop.setVisibility(View.GONE);
-                                } else {
-                                    customerUsername.setError("Customer does not exist");
-                                }
-                            } else {
-                                customerUsername.setError("Username does not exist");
-                            }
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-                }
-            }
-        });
         codeScanner.setAutoFocusEnabled(true);
         codeScanner.setFormats(CodeScanner.ALL_FORMATS);
         codeScanner.setScanMode(ScanMode.CONTINUOUS);
         codeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
             public void onDecoded(@NonNull final Result result) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String data = result.getText();
-                        itemID = data;
-                        codeData.setText(data);
-                        stopScanning(); // Stop scanning after one output
-                        hideKeyboard();
-                        checkItem();
-                    }
+                runOnUiThread(() -> {
+                    itemID = result.getText();
+                    codeData.setText(itemID);
+                    stopScanning();
+                    hideKeyboard();
+                    checkItem();
                 });
             }
         });
@@ -315,14 +317,12 @@ public class ScanBarcode extends AppCompatActivity {
 
     private void searchItemsByName(String nameQuery) {
         DatabaseReference itemsRef = FirebaseDatabase.getInstance().getReference("items");
-        // Firebase doesn't support full-text search or case-insensitive contains easily
-        // We can use startAt/endAt for simple prefix search
-        // To handle middle-of-string matches better without a search engine like Algolia, 
-        // we use a prefix search. For "oil" matching "Hair Oil", we'd need to fetch all and filter client-side.
         
         itemsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (isDestroyed() || isFinishing()) return;
+                
                 adapter.clear();
                 itemNameToIdMap.clear();
                 String queryLower = nameQuery.toLowerCase();
@@ -336,8 +336,9 @@ public class ScanBarcode extends AppCompatActivity {
                         }
                     }
                 }
-                adapter.notifyDataSetChanged();
-                if (adapter.getCount() > 0) {
+                
+                if (adapter.getCount() > 0 && manualItemId.hasFocus()) {
+                    adapter.notifyDataSetChanged();
                     manualItemId.showDropDown();
                 }
             }
