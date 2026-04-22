@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminSide"
+    android:orientation="vertical"
+    android:background="@drawable/basicsqure">
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_button"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="30dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_bold"
+            android:paddingLeft="5dp"
+            android:paddingBottom="20dp"
+            android:text="Add New Item"
+            android:textColor="@color/primary_color"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/item_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/history_square"
+            android:elevation="5dp"
+            android:fontFamily="@font/ubuntu"
+            android:hint="Item Id"
+            android:padding="15dp"
+            android:textColor="@color/primary_color"
+            android:textColorHint="#818182" />
+
+        <EditText
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/history_square"
+            android:elevation="5dp"
+            android:fontFamily="@font/ubuntu"
+            android:hint="Item Name"
+            android:padding="15dp"
+            android:textColor="@color/primary_color"
+            android:textColorHint="#818182" />
+
+        <EditText
+            android:id="@+id/item_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/history_square"
+            android:fontFamily="@font/ubuntu"
+            android:hint="Item Price"
+            android:padding="15dp"
+            android:textColor="@color/primary_color"
+            android:textColorHint="#818182" />
+
+        <EditText
+            android:id="@+id/item_dec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/history_square"
+            android:elevation="5dp"
+            android:fontFamily="@font/ubuntu"
+            android:hint="Item description"
+            android:padding="15dp"
+            android:textColor="@color/primary_color"
+            android:textColorHint="#818182"
+            />
+
+        <Button
+            android:id="@+id/item_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_res"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="Add item"
+            android:elevation="5dp"
+            android:textColor="@color/secondary_color" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

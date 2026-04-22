@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Welcome_Screen"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/secondary_color"
+   >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu"
+        android:text="Welcome to"
+        android:textColor="@color/primary_color"
+        android:textSize="32sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="@font/poppins_black"
+        android:text="Billify"
+        android:textColor="@color/third_color"
+        android:textSize="48sp" />
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:src="@drawable/welcome"
+        />
+
+
+
+    <TextView
+        android:id="@+id/login_btn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:background="@drawable/login_btn"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="Login"
+        android:textSize="20sp"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/secondary_color"
+        android:elevation="10dp"
+        />
+
+    <TextView
+        android:id="@+id/register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:fontFamily="@font/ubuntu_medium"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textColor="@color/primary_color"
+        />
+</LinearLayout>

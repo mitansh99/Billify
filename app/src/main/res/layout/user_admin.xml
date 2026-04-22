@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/history_square"
+    android:padding="20dp">
+    <TextView
+        android:id="@+id/shopkeeperName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[Shopkeeper name]"
+        android:textSize="18dp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:elevation="5dp"
+        />
+</LinearLayout>

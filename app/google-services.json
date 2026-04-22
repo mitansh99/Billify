@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "241339846519",
+    "project_id": "billifyfinal",
+    "storage_bucket": "billifyfinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241339846519:android:e273d3c1a09bb90596db72",
+        "android_client_info": {
+          "package_name": "com.example.billifyfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpGAtGMmGE13mcAgbkE0zXpj90sDXE8Q8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
